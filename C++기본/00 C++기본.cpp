@@ -1,4 +1,3 @@
-#include <stdio.h>
 //std::coutÀ» Æ÷ÇÔ
 #include <iostream>
 
