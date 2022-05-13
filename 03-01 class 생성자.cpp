@@ -41,22 +41,10 @@ void Student::show()
 
 int main(void)
 {
-	//// 기본생성자
-	//Student stu1 = Student();
-	////Student student2 = Student();
-	//stu1.show();
+	Student* stu2 = new Student(1111, "YDY");
+	stu2->show();
 
-	//Student stu2 = Student(1111, "YDY");
-	//stu2.show();
-
-	int* ptr2 = new int[4];
-	for (int i = 0; i < 4; i++) {
-		ptr2[i] = 10 + i;
-		
-		cout << ptr2[i] << " ";
-	}
-
-	delete []ptr2;
+	delete stu2;
 
 	return 0;
 }
