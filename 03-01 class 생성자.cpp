@@ -41,12 +41,10 @@ void Student::show()
 
 int main(void)
 {
-	Student* stu2 = new Student[6];
-	for (int i = 0; i < 6; i++) {
-		stu2[i].show();
+	for (int i = 0; i < 10000; i++) {
+		Student* stu2 = new Student[1000];
+		delete[]stu2;
 	}
-
-	delete []stu2;
 
 	return 0;
 }
