@@ -15,6 +15,7 @@ public:
 	// 반환형을 갖고 있지 않는다
 	Student();
 	Student(int Hakbun, const char* Name);
+	Student(const Student& rhs);
 	~Student();
 
 	void show();
@@ -32,6 +33,13 @@ Student::Student(int Hakbun, const char* Name)
 	strcpy(sName, Name);
 }
 
+// 직접 작성 안 해도 컴파일러가 알아서 만들어주는 복사생성자
+Student::Student(const Student& rhs)
+	:nHakbun(rhs.nHakbun), sName(rhs.sName)
+{
+
+}
+
 Student::~Student()
 {
 	delete[]sName;
@@ -46,8 +54,13 @@ void Student::show()
 
 int main(void)
 {
+	// "일반생성자 호출" 출력
 	Student stu1 = Student(1111, "YDY");
+	// (1111, "YDY")가 복사됨, 일반생성자 호출 x
+	Student stu2 = stu1;
+
 	stu1.show();
+	stu2.show();
 
 	return 0;
 }
