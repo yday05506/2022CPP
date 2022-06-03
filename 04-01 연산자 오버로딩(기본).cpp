@@ -37,7 +37,7 @@ int main(void)
 	Point p2(3, 4);
 	Point sum = p1.operator+(p2);	// p1 + p2
 
-	p1.show();	// (4, 6) 출력
+	sum.show();	// (4, 6) 출력
 
 	return 0;
 }
