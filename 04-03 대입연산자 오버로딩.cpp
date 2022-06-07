@@ -57,6 +57,7 @@ void Student::show()
 	cout << "이름은 " << sName << "입니다." << endl << endl;
 }
 
+// default 대입연산자
 Student& Student::operator=(const Student& rhs)
 {
 	nHakbun = rhs.nHakbun;
@@ -79,6 +80,6 @@ int main(void)
 	// 대입연산자 호출 (아직 오버로딩 구현 안 함)
 	stu1 = stu3;
 	stu1.show();	// (2222, "PJC")
-
+	
 	return 0;
 }
