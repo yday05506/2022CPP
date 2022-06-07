@@ -18,6 +18,8 @@ public:
 	Student(const Student& rhs);
 	~Student();
 
+	Student& operator=(const Student& rhs);
+
 	void show();
 };
 
@@ -37,7 +39,10 @@ Student::Student(int Hakbun, const char* Name)
 Student::Student(const Student& rhs)
 	:nHakbun(rhs.nHakbun), sName(rhs.sName)
 {
-
+	cout << "복사생성자 호출." << endl;
+	int len = strlen(rhs.sName) + 1;	// 공간의 개수 파악
+	sName = new char[len];	// 개수만큼 메모리 할당
+	strcpy(sName, rhs.sName);
 }
 
 Student::~Student()
@@ -52,15 +57,28 @@ void Student::show()
 	cout << "이름은 " << sName << "입니다." << endl << endl;
 }
 
+Student& Student::operator=(const Student& rhs)
+{
+	nHakbun = rhs.nHakbun;
+	sName = rhs.sName;
+
+	return *this;
+}
+
 int main(void)
 {
 	// "일반생성자 호출" 출력
-	Student stu1 = Student(1111, "YDY");
-	// (1111, "YDY")가 복사됨, 일반생성자 호출 x
-	Student stu2 = stu1;
+	Student stu1 = Student(1111, "PSH");
+	Student stu3 = Student(2222, "PJC");
+	stu1.show();	// (1111, "PSH")
 
-	stu1.show();
-	stu2.show();
+	// 복사생성자 호출
+	Student stu2 = stu1;	// stu2 = Student(stu1)
+	stu2.show();	// (1111, "PSH")
+
+	// 대입연산자 호출 (아직 오버로딩 구현 안 함)
+	stu1 = stu3;
+	stu1.show();	// (2222, "PJC")
 
 	return 0;
 }
