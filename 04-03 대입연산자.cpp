@@ -29,7 +29,7 @@ Student::Student() {}
 Student::Student(int Hakbun, const char* Name)
 	: nHakbun(Hakbun)	// 멤버변수(매개변수)
 {
-	cout << "일반생성자 호출." << endl;
+	cout << "Student 일반생성자 호출." << endl;
 	int len = strlen(Name) + 1;	// 공간의 개수 파악
 	sName = new char[len];	// 개수만큼 메모리 할당
 	strcpy(sName, Name);
@@ -39,7 +39,7 @@ Student::Student(int Hakbun, const char* Name)
 Student::Student(const Student& rhs)
 	:nHakbun(rhs.nHakbun), sName(rhs.sName)
 {
-	cout << "복사생성자 호출." << endl;
+	cout << "Student 복사생성자 호출." << endl;
 	int len = strlen(rhs.sName) + 1;	// 공간의 개수 파악
 	sName = new char[len];	// 개수만큼 메모리 할당
 	strcpy(sName, rhs.sName);
@@ -48,7 +48,7 @@ Student::Student(const Student& rhs)
 Student::~Student()
 {
 	delete[]sName;
-	cout << "소멸자 호출" << endl;
+	cout << "Student 소멸자 호출" << endl;
 }
 
 void Student::show()
@@ -62,7 +62,7 @@ Student& Student::operator=(const Student& rhs)
 {
 	nHakbun = rhs.nHakbun;
 
-	cout << "대입연산자 호출." << endl;
+	cout << "Student 대입연산자 호출." << endl;
 	int len = strlen(rhs.sName) + 1;	// 공간의 개수 파악
 	sName = new char[len];	// 개수만큼 메모리 할당
 	strcpy(sName, rhs.sName);
@@ -70,27 +70,26 @@ Student& Student::operator=(const Student& rhs)
 	return *this;
 }
 
+class HighSchoolStudent : public Student
+{
+public:
+	HighSchoolStudent(int Hakbun, const char* Name, bool isD)
+		: Student(Hakbun, Name), isDormitory(isD)
+	{
+		cout << "HighSchoolStudent 생성자 호출" << endl;
+	}
+	~HighSchoolStudent()
+	{
+		cout << "HighSchoolStudent 소멸자 호출" << endl;
+	}
+private:
+	bool isDormitory;
+};
+
 int main(void)
 {
-	// "일반생성자 호출" 출력
-	Student stu1 = Student(1111, "PSH");
-	Student stu3 = Student(2222, "PJC");
-	stu1.show();	// (1111, "PSH")
-
-	// 복사생성자 호출
-	Student stu2 = stu1;	// stu2 = Student(stu1)
-	stu2.show();	// (1111, "PSH")
-
-	// 대입연산자 호출 (아직 오버로딩 구현 안 함)
-	stu1 = stu3;
-	stu1.show();	// (2222, "PJC")
-	
-	Student* aaa;
-	for (int i = 0; i < 1000000; i++)
-	{
-		aaa = new Student(i, "PSH");
-		delete aaa;
-	}
+	HighSchoolStudent hss = HighSchoolStudent(1111, "PSH", false);
+	hss.show();
 
 	return 0;
 }
