@@ -50,5 +50,11 @@
     <ClInclude Include="04-02.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\y1315\Downloads\00 - 클래스 설계.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="YG.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
