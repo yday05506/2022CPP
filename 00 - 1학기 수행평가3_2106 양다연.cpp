@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#pragma warning(disable:4996)
+#include <iostream>
 #include <cstring>
 
 using namespace std;
@@ -39,6 +40,14 @@ public:
 		_Mysize = strlen(p) + 1;
 		_Myptr = new char[_Mysize];
 		strcpy(_Myptr, p);
+		return *this;
+	}
+	m_string& operator=(const m_string& rhs)
+	{
+		delete[]_Myptr;
+		_Mysize = strlen(rhs._Myptr) + 1;
+		_Myptr = new char[_Mysize];
+		strcpy(_Myptr, rhs._Myptr);
 		return *this;
 	}
 	// 덧셈연산자
