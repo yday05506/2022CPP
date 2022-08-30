@@ -8,7 +8,7 @@ public:
 	void eat(void) { cout << "µ¿¹° ¸Ô¾î" << endl; }
 	void roar(void) { cout << "µ¿¹° Â¢¾î" << endl; }
 	void walk(void) { cout << "µ¿¹° °É¾î" << endl; }
-
+	
 private:
 	string name;
 	int sex;
@@ -26,9 +26,15 @@ public:
 };
 
 void main(void) {
-	Animal animal;
-	animal.roar();	// "µ¿¹° Â¢¾î"
+	Animal* animal = new Animal();
+	animal->roar();	// "µ¿¹° Â¢¾î"
+	delete animal;
 
-	Dog dog;
-	dog.roar();	// "¸Û¸Û"
+	animal = new Tiger();
+	animal->roar();	// "µ¿¹° Â¢¾î" (¾îÈï X)
+	delete animal;
+
+	animal = new Dog();
+	animal->roar();	// "µ¿¹° Â¢¾î" (¸Û¸Û X)
+	delete animal;
 }
