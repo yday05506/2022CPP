@@ -4,10 +4,7 @@
 using namespace std;
 
 template <typename T>
-T sum(T a, T b) {
-	return a + b;
-}
-int sum(int a, int b);
+T sum(T a, T b);
 
 int main(void) {
 	cout << sum<int>(1, 2) << endl;
@@ -15,7 +12,7 @@ int main(void) {
 	cout << sum<string>("1", "2") << endl;
 }
 
-int sum(int a, int b)
-{
+template <typename T>
+T sum(T a, T b) {
 	return a + b;
 }
