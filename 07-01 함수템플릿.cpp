@@ -20,10 +20,10 @@ int sum(int a, int b)
 
 float sum(float a, float b)
 {
-	return 0.0f;
+	return a + b;
 }
 
 string sum(string a, string b)
 {
-	return string();
+	return a + b;
 }
