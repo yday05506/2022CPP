@@ -3,9 +3,11 @@
 
 using namespace std;
 
+template <typename S, typename I>
+
 class Character {
 public :
-	Character(string na, int hp, int at, int de)
+	Character(S na, I hp, I at, I de)
 		:name(na), HP(hp), attack(at), defense(de) {}
 
 	void Situation() {
@@ -16,13 +18,16 @@ public :
 	}
 
 private:
-	string name;
-	int HP;
-	int attack;
-	int defense;
+	S name;
+	I HP;
+	I attack;
+	I defense;
 };
 
 int main(void) {
-	Character* character = new Character("AAA", 10, 5, 3);
+	Character<string, int>* character = new Character<string, int>("AAA", 10, 5, 3);
 	character->Situation();
+
+	delete character;
+	return 0;
 }
