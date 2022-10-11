@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="08-02 map.cpp">
+    <ClCompile Include="map 코드 짜보기.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
