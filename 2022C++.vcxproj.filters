@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="09-02 범위기반 for.cpp">
+    <ClCompile Include="auto.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
