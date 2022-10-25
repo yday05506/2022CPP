@@ -10,4 +10,7 @@ void main(void)
 	for (int i = 0; i < sizeof(arr)/sizeof(int); i++) {
 		cout << arr[i] << "\t";
 	}
+
+	for (int x : arr)
+		cout << x << "\t";
 }
